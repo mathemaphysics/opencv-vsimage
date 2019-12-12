@@ -5,6 +5,7 @@ RUN apt-get update -y \
     && apt-get -y install libopencv-* \
     && apt-get -y install libopencv-dev \
     && apt-get -y install opencv-data opencv-doc
+RUN apt-get install -y gdb
 RUN apt-get install -y python3 python3-opencv
 RUN apt-get install -y locate
 RUN apt-get install -y git
