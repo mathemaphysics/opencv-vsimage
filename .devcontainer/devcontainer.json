@@ -44,5 +44,6 @@
 				   "eamodio.gitlens",
 				   "ms-vscode.cmake-tools",
 				   "twxs.cmake",
-				   "fredericbonnet.cmake-test-adapter"]
+				   "fredericbonnet.cmake-test-adapter",
+				   "vector-of-bool.cmake-tools"]
 }

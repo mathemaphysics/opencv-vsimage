@@ -10,7 +10,8 @@
             "includePath": [
                 "/usr/include/x86_64-linux-gnu",
                 "${default}"
-            ]
+            ],
+            "configurationProvider": "vector-of-bool.cmake-tools"
         }
     ],
     "version": 4
