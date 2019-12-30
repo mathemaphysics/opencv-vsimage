@@ -5,8 +5,10 @@
  */
 
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
 #include <vector>
+#include <fstream>
 
 int iterator_function(int &input)
 {
