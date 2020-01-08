@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <vector>
 #include <fstream>
+#include <opencv2/core.hpp>
 
 int iterator_function(int &input)
 {
@@ -35,6 +36,9 @@ int main(int argc, char **argv)
     std::cout << "After:" << std::endl;
     for (auto itr = vec.begin(); itr < vec.end(); itr++)
         std::cout << *itr << std::endl;
+
+    /* Now try something with OpenCV */
+    
 
     /* Something, something, something... Daaaark Siiide */
     return 0;
