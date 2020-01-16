@@ -10,6 +10,7 @@
 #include <vector>
 #include <fstream>
 #include <opencv2/core.hpp>
+#include <opencv2/opencv.hpp>
 
 int iterator_function(int &input)
 {
@@ -38,7 +39,9 @@ int main(int argc, char **argv)
         std::cout << *itr << std::endl;
 
     /* Now try something with OpenCV */
-    
+    cv::String fname = "input.jpg";
+    cv::Mat image = cv::imread(fname);
+    cv::imshow("Image Test", image);
 
     /* Something, something, something... Daaaark Siiide */
     return 0;
