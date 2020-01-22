@@ -11,6 +11,7 @@
 #include <fstream>
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>
+#include "opencv_testing_config.h"
 
 int iterator_function(int &input)
 {
@@ -39,7 +40,7 @@ int main(int argc, char **argv)
         std::cout << *itr << std::endl;
 
     /* Now try something with OpenCV */
-    cv::String fname = "input.jpg";
+    cv::String fname = IMAGE_FILENAME;
     cv::Mat image = cv::imread(fname);
     cv::imshow("Image Test", image);
 

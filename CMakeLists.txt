@@ -15,6 +15,9 @@ target_link_libraries(opencv
 
 add_executable(opencv_testing main.cc)
 
+set(IMAGE_FILENAME "${CMAKE_SOURCE_DIR}/share/nice_place.jpg")
+configure_file(opencv_testing_config.h.in "${CMAKE_SOURCE_DIR}/opencv_testing_config.h")
+
 target_link_libraries(opencv_testing 
     PRIVATE 
         opencv
