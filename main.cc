@@ -41,8 +41,22 @@ int main(int argc, char **argv)
 
     /* Now try something with OpenCV */
     cv::String fname = IMAGE_FILENAME;
-    cv::Mat image = cv::imread(fname);
+    cv::Mat image = cv::imread(fname, CV_LOAD_IMAGE_UNCHANGED);
+    cv::Mat imout = image.clone();
+    std::cout << imout << std::endl;
+    std::cout << "Row 0: " << imout.ptr(0) << std::endl;
+    cv::namedWindow("Image Test", CV_WINDOW_AUTOSIZE);
     cv::imshow("Image Test", image);
+    cv::waitKey(0);
+    //try
+    //{
+    //    cv::filter2D(image, imout, 1, cv::getGaborKernel(cv::Size(7,7), 0.2, 0.2, 0.2, 0.2, 1.57, 6), cv::Point(-1, -1), 0.0, 4);
+    //}
+    //catch(cv::Exception e)
+    //{
+    //    std::cout << e.what() << std::endl;
+    //}
+    std::cout << "Dimensions: " << image.rows << " and " << image.cols << std::endl;
 
     /* Something, something, something... Daaaark Siiide */
     return 0;
