@@ -9,6 +9,6 @@ RUN apt-get install -y gdb language-pack-en-base
 RUN apt-get install -y python3 python3-opencv
 RUN apt-get install -y locate
 RUN apt-get install -y git
-ENV DISPLAY=127.0.0.1:0.0
+ENV DISPLAY=172.50.1.221:0.0
 
 ENTRYPOINT [ "/bin/bash" ]
