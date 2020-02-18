@@ -13,6 +13,15 @@ target_link_libraries(opencv
         INTERFACE
         ${OpenCV_LIBS})
 
+find_package(TileDB)
+add_library(tiledb INTERFACE)
+target_include_directories(tiledb
+        INTERFACE
+        ${TileDB_INCLUDE_DIRS})
+target_link_libraries(tiledb
+        INTERFACE
+        ${TileDB_LIBS})
+
 add_executable(opencv_testing main.cc)
 
 set(IMAGE_FILENAME "${CMAKE_SOURCE_DIR}/share/nice_place.jpg")
