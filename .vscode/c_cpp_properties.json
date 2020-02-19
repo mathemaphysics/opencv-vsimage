@@ -9,6 +9,7 @@
             "intelliSenseMode": "gcc-x64",
             "includePath": [
                 "/usr/include/x86_64-linux-gnu",
+                "/usr/local/include",
                 "${default}"
             ],
             "configurationProvider": "vector-of-bool.cmake-tools",

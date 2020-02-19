@@ -11,6 +11,7 @@
 #include <fstream>
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>
+#include <tiledb/array.h>
 #include "opencv_testing_config.h"
 
 int iterator_function(int &input)
@@ -50,6 +51,9 @@ int main(int argc, char **argv)
     //cv::VideoCapture(1);
     cv::waitKey(0);
     std::cout << "Dimensions: " << image.rows << " and " << image.cols << std::endl;
+
+    /* Testing out TileDB */
+    auto a = new tiledb::Context();
 
     /* Something, something, something... Daaaark Siiide */
     return 0;
