@@ -45,5 +45,6 @@
 				   "ms-vscode.cmake-tools",
 				   "twxs.cmake",
 				   "fredericbonnet.cmake-test-adapter",
-				   "vector-of-bool.cmake-tools"]
+				   "vector-of-bool.cmake-tools",
+				   "mhutchie.git-graph"]
 }

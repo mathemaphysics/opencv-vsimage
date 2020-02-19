@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     cv::String fname = IMAGE_FILENAME;
     cv::Mat image = cv::imread(fname, CV_LOAD_IMAGE_UNCHANGED);
     cv::Mat imout = image.clone();
-    std::cout << imout << std::endl;
+    //std::cout << imout << std::endl;
     std::cout << "Row 0: " << imout.ptr() << std::endl;
     cv::namedWindow("Image Test", CV_WINDOW_AUTOSIZE);
     cv::imshow("Image Test", image);
