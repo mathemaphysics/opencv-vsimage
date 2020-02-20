@@ -5,6 +5,7 @@ include(CTest)
 enable_testing()
 
 add_executable(opencv_testing main.cc)
+add_executable(localcartesian localcartesian.cc)
 
 find_package(OpenCV)
 if (OpenCV_FOUND)
@@ -21,6 +22,10 @@ if (GDAL_FOUND)
     include_directories(${GDAL_INCLUDE_DIRS})
     target_link_libraries(opencv_testing ${GDAL_LIBRARIES})
 endif (GDAL_FOUND)
+
+include_directories(/usr/local/include)
+find_library(Geographic_LIBRARY Geographic)
+target_link_libraries(localcartesian ${Geographic_LIBRARY})
 
 set(IMAGE_FILENAME "${CMAKE_SOURCE_DIR}/share/nice_place.jpg")
 configure_file(opencv_testing_config.h.in "${CMAKE_SOURCE_DIR}/opencv_testing_config.h")
