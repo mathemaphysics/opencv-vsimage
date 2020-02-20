@@ -12,6 +12,7 @@
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>
 #include <tiledb/array.h>
+#include <gdal.h>
 #include "opencv_testing_config.h"
 
 int iterator_function(int &input)

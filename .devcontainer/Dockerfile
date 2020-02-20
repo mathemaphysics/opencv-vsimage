@@ -51,6 +51,14 @@ WORKDIR gdal-3.0.4
 RUN ./configure --prefix=/usr/local --with-proj=/usr/local
 RUN make && make install
 
+# Download and build GeographicLib
+WORKDIR /workspaces/geographiclib
+RUN wget https://sourceforge.net/projects/geographiclib/files/distrib/GeographicLib-1.50.1.tar.gz
+RUN tar xvf GeographicLib-1.50.1.tar.gz
+WORKDIR GeographicLib-1.50.1
+RUN ./configure --prefix=/usr/local
+RUN make && make install
+
 # Set the display to make life easier
 ENV DISPLAY=172.50.1.221:0.0
 
