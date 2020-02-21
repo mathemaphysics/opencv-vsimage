@@ -22,7 +22,12 @@ RUN apt-get install -y sqlite3 libkml-dev \
     && apt-get install -y libhdf4-dev libhdf5-dev libnetcdf-dev \
     && apt-get install -y mongodb mongodb-dev libgeos-dev \
     && apt-get install -y libopenjp2-7-dev
+RUN apt-get install -y libgdal-dev liblas-bin liblas-c-dev \
+    && apt=get install -y liblas-c3 liblas-dev liblas3
 RUN apt-get install -y wget vim locate git
+
+# Make sure libraries installed can be found in the future
+ENV LD_LIBRARY_PATH /usr/local/lib
 
 # Clone and build TileDB
 WORKDIR /workspaces/tiledb
@@ -30,7 +35,6 @@ RUN git clone https://github.com/TileDB-Inc/TileDB
 WORKDIR TileDB/build
 RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local \
     && make && make install-tiledb
-ENV LD_LIBRARY_PATH /usr/local/lib
 
 # Clone and build PointCloudLibrary
 #WORKDIR /workspaces/pcl
@@ -58,6 +62,13 @@ RUN tar xvf GeographicLib-1.50.1.tar.gz
 WORKDIR GeographicLib-1.50.1
 RUN ./configure --prefix=/usr/local
 RUN make && make install
+
+# Clone and build PDAL
+WORKDIR /workspaces/pdal
+RUN git clone https://github.com/PDAL/PDAL.git
+WORKDIR PDAL/build
+RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local \
+    && make && make install
 
 # Set the display to make life easier
 ENV DISPLAY=172.50.1.221:0.0

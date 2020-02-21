@@ -30,6 +30,17 @@ target_link_libraries(localcartesian ${Geographic_LIBRARY})
 set(IMAGE_FILENAME "${CMAKE_SOURCE_DIR}/share/nice_place.jpg")
 configure_file(opencv_testing_config.h.in "${CMAKE_SOURCE_DIR}/opencv_testing_config.h")
 
+#add_test(
+#    NAME
+#        test1
+#    CONFIGURATIONS
+#        Debug
+#    WORKING_DIRECTORY
+#        ${CMAKE_BINARY_DIR}/test
+#    COMMAND
+#        echo "This is a test"
+#)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
