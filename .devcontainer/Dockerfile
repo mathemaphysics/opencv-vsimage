@@ -18,16 +18,15 @@ RUN apt-get update -y \
 RUN apt-get install -y gdb language-pack-en-base
 RUN apt-get install -y python3 python3-opencv
 RUN apt-get install -y sqlite3 libkml-dev \
-    && apt-get install -y --fix-missing libxml2 libxml2-dev \
+    && apt-get install -y libxml2 libxml2-dev \
     && apt-get install -y libhdf4-dev libhdf5-dev libnetcdf-dev \
     && apt-get install -y mongodb mongodb-dev libgeos-dev \
     && apt-get install -y libopenjp2-7-dev
-RUN apt-get install -y libgdal-dev liblas-bin liblas-c-dev \
-    && apt=get install -y liblas-c3 liblas-dev liblas3
 RUN apt-get install -y wget vim locate git
 
 # Make sure libraries installed can be found in the future
 ENV LD_LIBRARY_PATH /usr/local/lib
+ENV LIBRARY_PATH=/usr/local/lib
 
 # Clone and build TileDB
 WORKDIR /workspaces/tiledb
@@ -62,6 +61,12 @@ RUN tar xvf GeographicLib-1.50.1.tar.gz
 WORKDIR GeographicLib-1.50.1
 RUN ./configure --prefix=/usr/local
 RUN make && make install
+
+## Adding liblas and PDAL's needed libgdal-dev installs
+## another version of proj, which interferes with compilation
+## of GDAL against proj-6; install them afterward
+#RUN apt-get install -y libgdal-dev liblas-bin liblas-c-dev \
+#    && apt-get install -y liblas-c3 liblas-dev liblas3
 
 # Clone and build PDAL
 WORKDIR /workspaces/pdal
