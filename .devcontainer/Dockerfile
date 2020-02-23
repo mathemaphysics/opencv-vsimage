@@ -73,7 +73,7 @@ WORKDIR PDAL/build
 RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local \
     && make && make install
 
-# Clone and build PointCloudLibrary
+# Clone and build PCL
 RUN apt-get install -y --fix-missing libeigen3-dev libflann-dev libqhull-dev libusb-1.0 libusb-dev vtk7 libvtk7-dev libboost-all-dev
 WORKDIR /workspaces/pcl
 RUN git clone https://github.com/PointCloudLibrary/pcl.git
