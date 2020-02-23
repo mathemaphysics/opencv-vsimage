@@ -35,9 +35,6 @@ WORKDIR TileDB/build
 RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local \
     && make && make install-tiledb
 
-# Clone and build PointCloudLibrary
-#WORKDIR /workspaces/pcl
-
 # Instal proj from source
 WORKDIR /workspaces/proj
 RUN wget https://download.osgeo.org/proj/proj-6.3.1.tar.gz
@@ -69,9 +66,18 @@ RUN make && make install
 #    && apt-get install -y liblas-c3 liblas-dev liblas3
 
 # Clone and build PDAL
+RUN apt-get install -y libgeotiff2 libgeotiff-dev
 WORKDIR /workspaces/pdal
 RUN git clone https://github.com/PDAL/PDAL.git
 WORKDIR PDAL/build
+RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local \
+    && make && make install
+
+# Clone and build PointCloudLibrary
+RUN apt-get install -y --fix-missing libeigen3-dev libflann-dev libqhull-dev libusb-1.0 libusb-dev vtk7 libvtk7-dev libboost-all-dev
+WORKDIR /workspaces/pcl
+RUN git clone https://github.com/PointCloudLibrary/pcl.git
+WORKDIR pcl/build
 RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local \
     && make && make install
 
