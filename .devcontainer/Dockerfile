@@ -82,6 +82,10 @@ RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
 RUN make
 RUN make install
 
+# Install some python modules
+RUN apt-get install -y python3-pip
+RUN pip3 install meshio pyhull
+
 # Start from here
 WORKDIR /workspaces/opencv
 
