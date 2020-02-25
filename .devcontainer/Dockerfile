@@ -84,7 +84,7 @@ RUN make install
 
 # Install some python modules
 RUN apt-get install -y python3-pip
-RUN pip3 install meshio pyhull
+RUN pip3 install meshio pyhull pyproj shapely pandas geopandas matplotlib
 
 # Start from here
 WORKDIR /workspaces/opencv
