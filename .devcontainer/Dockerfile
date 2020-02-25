@@ -82,9 +82,18 @@ RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
 RUN make
 RUN make install
 
+# Clone and build LASTools
+WORKDIR /workspaces/lastools
+RUN git clone https://github.com/LAStools/LAStools.git
+WORKDIR LAStools/build
+RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
+RUN make
+RUN make install
+
 # Install some python modules
 RUN apt-get install -y python3-pip
 RUN pip3 install meshio pyhull pyproj shapely pandas geopandas matplotlib
+RUN apt-get install -y cookiecutter
 
 # Start from here
 WORKDIR /workspaces/opencv
