@@ -10,7 +10,9 @@
             "includePath": [
                 "/usr/include/x86_64-linux-gnu",
                 "/usr/local/include",
-                "${default}"
+                "/usr/local/include/pcl-1.10",
+                "${default}",
+                "/usr/include/eigen3"
             ],
             "configurationProvider": "vector-of-bool.cmake-tools",
             "compileCommands": "${workspaceFolder}/build/compile_commands.json"
