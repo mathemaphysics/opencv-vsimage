@@ -1,12 +1,11 @@
-#include <pcl/point_cloud.h>
-#include <pcl/kdtree/kdtree_flann.h>
-
 #include <iostream>
 #include <vector>
 #include <ctime>
 
-int
-main (int argc, char** argv)
+#include <pcl/point_cloud.h>
+#include <pcl/kdtree/kdtree_flann.h>
+
+int main (int argc, char** argv)
 {
   srand (time (NULL));
 
