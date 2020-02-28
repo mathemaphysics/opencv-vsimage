@@ -90,21 +90,21 @@ RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
 RUN make
 RUN make install
 
-# Install liblas-dev
-#RUN apt-get install -y liblas-dev liblas-c-dev
-
-# Clone and build las2pcd
-#WORKDIR /workspaces/las2pcd
-#RUN git clone https://github.com/murtiad/las2pcd.git
-#WORKDIR las2pcd/build
-#RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
-#RUN make
-#RUN make install
-
 # Install some python modules
 RUN apt-get install -y python3-pip
 RUN pip3 install meshio pyhull pyproj shapely pandas geopandas matplotlib
 RUN apt-get install -y cookiecutter
+
+# Install liblas-dev
+RUN apt-get install -y liblas-dev liblas-c-dev
+
+# Clone and build las2pcd
+WORKDIR /workspaces/las2pcd
+RUN git clone https://github.com/murtiad/las2pcd.git
+#WORKDIR las2pcd/build
+#RUN cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
+#RUN make
+#RUN make install
 
 # Start from here
 WORKDIR /workspaces/opencv
