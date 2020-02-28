@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or the definition README at
 // https://github.com/microsoft/vscode-dev-containers/tree/master/containers/docker-existing-dockerfile
 {
-	"name": "OpenCV",
+	"name": "GIS Cloudage",
 
 	// Sets the run context to one level up instead of the .devcontainer folder.
 	"context": "..",
@@ -48,3 +48,4 @@
 				   "vector-of-bool.cmake-tools",
 				   "mhutchie.git-graph"]
 }
+S
