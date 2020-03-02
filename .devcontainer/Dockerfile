@@ -58,6 +58,7 @@ RUN tar xvf GeographicLib-1.50.1.tar.gz
 WORKDIR GeographicLib-1.50.1
 RUN ./configure --prefix=/usr/local
 RUN make && make install
+ENV CMAKE_MODULE_PATH=/usr/local/share/cmake/GeographicLib
 
 ## Adding liblas and PDAL's needed libgdal-dev installs
 ## another version of proj, which interferes with compilation
