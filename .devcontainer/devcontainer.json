@@ -47,5 +47,7 @@
 				   "fredericbonnet.cmake-test-adapter",
 				   "vector-of-bool.cmake-tools",
 				   "mhutchie.git-graph",
-				   "vscodevim.vim"]
+				   "vscodevim.vim",
+				   "ms-python.python",
+				   "redhat.vscode-yaml"]
 }

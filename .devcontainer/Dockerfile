@@ -107,6 +107,8 @@ RUN git clone https://github.com/murtiad/las2pcd.git
 #RUN make
 #RUN make install
 
+RUN pip3 install scipy
+
 # Start from here
 WORKDIR /workspaces/opencv
 
